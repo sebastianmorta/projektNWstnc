@@ -6,6 +6,10 @@ import pandas
 import numpy as np
 import plyfile
 import matplotlib.pyplot as plt
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+from sklearn.svm import SVR
 
 
 def read_ply_xyzrgbnormal(filename):
@@ -66,7 +70,7 @@ def normalize_v3(arr):
 def slim(vert):
     result = np.array(vert[0])
     for i in vert:
-        if random() < .40:
+        if random() < .70:
             result = np.vstack([result, i])
     return result
 
@@ -135,7 +139,9 @@ print(vertices.shape)
 # ax.set_ylabel('y')
 # ax.set_zlabel('z')
 # plt.show()
-vertices2 = add_noise(vertices, .5, 0.005)
+vertices2 = add_noise(vertices, .5, 0.01)
+
+
 
 fig = plt.figure()
 ax = plt.axes(projection='3d')
